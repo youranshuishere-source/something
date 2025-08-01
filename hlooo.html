@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Moments</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff0f5;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .caption {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ff69b4;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      place-items: center;
+      animation: fadeIn 2s ease-in-out;
+      max-width: 90vw;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 22px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #ff1493;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      background: transparent;
+      border: none;
+      color: #ff69b4;
+      cursor: pointer;
+    }
+
+    .arrow-btn:hover {
+      color: #ff1493;
+    }
+
+    .arrow-btn.left {
+      left: 20px;
+    }
+
+    .arrow-btn.right {
+      right: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- First Page -->
+  <div class="page" id="page1">
+    <div class="caption">Hi Baby! Do you know aaj kya haiii?</div>
+    <div class="caption" style="font-size: 20px; color: #db7093;">Ummm... shayad nahi?</div>
+    <div class="caption" style="font-size: 22px; color: #c71585; margin-top: -10px;">Koi baat nahi baby ji, main hoon naa 💖</div>
+    <button class="btn" onclick="showPage2()">Open</button>
+  </div>
+
+  <!-- Second Page -->
+  <div class="page hidden" id="page2">
+    <div class="caption">Thodi Nok Jhok 💢</div>
+    <div class="image-gallery">
+      <img src="https://iili.io/Fglestf.md.jpg" alt="Nok Jhok">
+    </div>
+    <button class="arrow-btn right" onclick="showPage3()">➤</button>
+  </div>
+
+  <!-- Third Page -->
+  <div class="page hidden" id="page3">
+    <div class="caption">Bht Saara Pyaar 💖</div>
+    <div class="image-gallery">
+      <img src="https://iili.io/Fg0JNOF.png" alt="Pyaar">
+    </div>
+    <button class="arrow-btn left" onclick="showPage2()">←</button>
+    <button class="arrow-btn right" onclick="showPage4()">➤</button>
+  </div>
+
+  <!-- Fourth Page -->
+  <div class="page hidden" id="page4">
+    <div class="caption">Voh Din ❤️</div>
+    <div class="image-gallery">
+      <img src="https://iili.io/Fg0vJ87.md.jpg" alt="Voh Din">
+    </div>
+    <button class="arrow-btn left" onclick="showPage3()">←</button>
+    <button class="arrow-btn right" onclick="showPage5()">➤</button>
+  </div>
+
+  <!-- Fifth Page -->
+  <div class="page hidden" id="page5">
+    <div class="caption">Tu mile, sab kuch mil gaya 💕</div>
+    <div class="image-gallery">
+      <img src="https://iili.io/FgEFXEu.md.jpg" alt="Tu Mile">
+    </div>
+    <button class="arrow-btn left" onclick="showPage4()">←</button>
+    <button class="arrow-btn right" onclick="showPage6()">➤</button>
+  </div>
+
+  <!-- Sixth Page -->
+  <div class="page hidden" id="page6">
+    <div class="caption">Aapki muskurahat hi meri duniya hai 💫<br>Jab tak aap sath ho, sab kuch sath hai ✨</div>
+    <button class="arrow-btn left" onclick="showPage5()">←</button>
+    <button class="arrow-btn right" onclick="showPage7()">➤</button>
+  </div>
+
+  <!-- Seventh Page - I LOVE YOU -->
+  <div class="page hidden" id="page7">
+    <div class="caption" style="font-size: 40px; color: #ff1493;">I LOVE YOU ❤️</div>
+    <div class="image-gallery">
+      <img src="https://iili.io/FgEFXEu.md.jpg" alt="Tu Mile">
+      <img src="https://iili.io/Fg0vJ87.md.jpg" alt="Voh Din">
+      <img src="https://iili.io/Fglestf.md.jpg" alt="Nok Jhok">
+    </div>
+    <button class="arrow-btn left" onclick="showPage6()">←</button>
+  </div>
+
+  <script>
+    function showPage2() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+
+    function showPage3() {
+      document.getElementById('page2').classList.add('hidden');
+      document.getElementById('page3').classList.remove('hidden');
+    }
+
+    function showPage4() {
+      document.getElementById('page3').classList.add('hidden');
+      document.getElementById('page4').classList.remove('hidden');
+    }
+
+    function showPage5() {
+      document.getElementById('page4').classList.add('hidden');
+      document.getElementById('page5').classList.remove('hidden');
+    }
+
+    function showPage6() {
+      document.getElementById('page5').classList.add('hidden');
+      document.getElementById('page6').classList.remove('hidden');
+    }
+
+    function showPage7() {
+      document.getElementById('page6').classList.add('hidden');
+      document.getElementById('page7').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
